@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        app:navigationIcon="@mipmap/back_ib"
+        app:subtitleTextColor="@color/white"
+        app:title="Palette"
+        app:titleTextColor="@color/white"/>
+    <!--向上滑动隐藏掉toobar
+     app:layout_scrollFlags="scroll"
+    定义滚动视图是否应该伸展它的内容填补视窗。
+     android:fillViewport="false"-->
+    <android.support.design.widget.TabLayout
+        android:id="@+id/toolbar_tab"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:fillViewport="false"
+        app:layout_scrollFlags="scroll"
+        app:tabIndicatorColor="#0835f8"
+        app:tabIndicatorHeight="2.0dp"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="#090e21">
+        <android.support.design.widget.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="主页"/>
+        <android.support.design.widget.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="分享"/>
+
+        <android.support.design.widget.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="收藏"/>
+
+        <android.support.design.widget.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="关注"/>
+
+        <android.support.design.widget.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="微博"/>
+    </android.support.design.widget.TabLayout>
+    <!--pp:layout_behavior 属性，没错，
+            如果你使用CoordinatorLayout来实现Toolbar滚动渐变消失动画效果，那就必须在它下面的那个控件中加入这个属性，
+            并且下面的这个控件必须是可滚动的。
+        当设置了layout_behavior的控件滑动时，就会触发设置了layout_scrollFlags的控件发生状态的改变。-->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/main_vp_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+</LinearLayout>
+
